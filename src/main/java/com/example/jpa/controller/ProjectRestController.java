@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.jpa.model.Project;
 import com.example.jpa.repository.ProjectRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 class ProjectRestController {
 
-    private final ProjectRepository projectRepository;
+    @Autowired
+    ProjectRepository projectRepository;
 
     @GetMapping("/projects")
     public List<Project> findAll() {

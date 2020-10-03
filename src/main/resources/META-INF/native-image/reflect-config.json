@@ -3,12 +3,6 @@
 		"name":"com.fasterxml.jackson.annotation.SimpleObjectIdResolver",
 		"allDeclaredConstructors":true,
 		"allDeclaredMethods":true
-	},
-	{ 
-		"name":"org.springframework.web.HttpMediaTypeNotSupportedException",
-		"allDeclaredConstructors":true,
-		"allDeclaredMethods":true
 	}
-
 ]
 
