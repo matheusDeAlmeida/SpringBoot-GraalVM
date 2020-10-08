@@ -23,22 +23,22 @@ public class TestCaseController{
         this.service = service;
     }
 
-    @GetMapping("/features/{id}/testcases")
+    @GetMapping("/feature/{id}/testcases")
     public List<TestCase> findAllTestCases(@PathVariable Integer id){
         return service.getTestCases(id);
     }
 
-    @GetMapping(path = { "/features/{featureId}/testcases/{id}" })
+    @GetMapping(path = { "/feature/{featureId}/testcase/{id}" })
     public ResponseEntity<TestCase> findById(@PathVariable int id){
         return service.getTestCase(id);
     }
 
-    @PostMapping(path = { "/features/{featureId}/testcases" })
+    @PostMapping(path = { "/feature/{featureId}/testcase" })
     public void create(@PathVariable int featureId, @RequestBody TestCase f) {
         service.addTestCase(featureId, f);
     }
 
-    @DeleteMapping(path = { "/features/{featureId}/testcases/{testCaseId}" })
+    @DeleteMapping(path = { "/feature/{featureId}/testcase/{testCaseId}" })
     public ResponseEntity<?> delete(@PathVariable (value = "featureId") int featureId,
     @PathVariable (value = "testCaseId") int testCaseId) {
         return service.deleteTestCase(featureId, testCaseId);

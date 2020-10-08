@@ -8,6 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Step {
@@ -19,27 +28,21 @@ public class Step {
     String description;
     boolean wasItSuccessful;
 
-    @ManyToOne
-    @JoinColumn
-    private TestCase testCase;
-
-    /*
-    @OneToMany(mappedBy = "step", cascade = CascadeType.ALL)
-    private Set<InputData> inputData;
-
-    @OneToMany(mappedBy = "step", cascade = CascadeType.ALL)
-    private Set<Bug> bug;
-*/
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "testcase_id", referencedColumnName = "id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+    @JsonIdentityReference(alwaysAsId=true)
+    @JsonProperty("testcase_id")
+    private TestCase testCase; 
 
     public Step() {
     }
 
-    public Step(Integer id, boolean wasItSuccessful, TestCase testCase/*, Set<InputData> inputData, Set<Bug> bug*/) {
+    public Step(Integer id, boolean wasItSuccessful, TestCase testCase) {
         this.id = id;
         this.wasItSuccessful = wasItSuccessful;
         this.testCase = testCase;
-        //this.inputData = inputData;
-        //this.bug = bug;
     }
 
 
@@ -74,22 +77,7 @@ public class Step {
     public void setTestCase(TestCase testCase) {
         this.testCase = testCase;
     }
-/*
-    public Set<InputData> getInputData() {
-        return this.inputData;
-    }
 
-    public void setInputData(Set<InputData> inputData) {
-        this.inputData = inputData;
-    }
-    public Set<Bug> getBug() {
-        return this.bug;
-    }
-
-    public void setBug(Set<Bug> bug) {
-        this.bug = bug;
-    }
-*/
     public Step id(Integer id) {
         this.id = id;
         return this;

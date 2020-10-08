@@ -37,7 +37,7 @@ public class BugController{
         return repository.findByInputDataId(id);
     }
 
-    @PostMapping(path = { "/inputdata/{inputDataId}/bugs" })
+    @PostMapping(path = { "/inputdata/{inputDataId}/bug" })
     public Bug create(@PathVariable (value = "inputDataId") int inputDataId, @RequestBody Bug bug) {
         return service.addBug(inputDataId, bug);
     }

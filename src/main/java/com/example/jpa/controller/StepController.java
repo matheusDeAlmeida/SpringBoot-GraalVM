@@ -31,17 +31,17 @@ public class StepController {
         this.service = service;
     }
 
-    @GetMapping("/testcases/{id}/steps")
+    @GetMapping("/testcase/{id}/steps")
     public List<Step> findAllSteps(@PathVariable Integer id) {
         return repository.findByTestCaseId(id);
     }
 
-    @PostMapping(path = { "/testcases/{testCaseId}/steps" })
+    @PostMapping(path = { "/testcase/{testCaseId}/step" })
     public Step create(@PathVariable int testCaseId, @RequestBody Step p) {
         return service.addStep(testCaseId, p);
     }
 
-    @DeleteMapping(path = { "/testcases/{testCaseId}/steps/{stepId}" })
+    @DeleteMapping(path = { "/testcase/{testCaseId}/step/{stepId}" })
     public ResponseEntity<?> delete(@PathVariable(value = "testCaseId") int testCaseId,
             @PathVariable(value = "stepId") int stepId) {
         return service.deleteStep(testCaseId, stepId);

@@ -32,17 +32,17 @@ public class FeatureController{
         this.service = service;
     }
 
-    @GetMapping("/projects/{id}/features")
+    @GetMapping("/project/{id}/features")
     public List<Feature> findAllFeatures(@PathVariable (value = "id") int id){
         return repository.findByProjectId(id);
     }
 
-    @PostMapping(path = { "/projects/{projectId}/features" })
+    @PostMapping(path = { "/project/{projectId}/feature" })
     public Feature create(@PathVariable (value = "projectId") int projectId, @RequestBody Feature feature) {
         return service.addFeature(projectId, feature);
     }
 
-    @DeleteMapping(path = { "/projects/{projectId}/feature/{featureId}" })
+    @DeleteMapping(path = { "/project/{projectId}/feature/{featureId}" })
     public ResponseEntity<?> delete(@PathVariable (value = "projectId") int projectId,
     @PathVariable (value = "featureId") int featureId) {
         return service.deleteFeature(projectId, featureId);

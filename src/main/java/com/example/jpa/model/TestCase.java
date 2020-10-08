@@ -47,7 +47,7 @@ public class TestCase {
     public TestCase() {
     }
 
-    public TestCase(Integer id, String description, Boolean wasItSuccessful, Feature feature /*Set<Plataforma> plataformas*/) {
+    public TestCase(Integer id, String description, Boolean wasItSuccessful, Feature feature) {
         this.id = id;
         this.description = description;
         this.wasItSuccessful = wasItSuccessful;

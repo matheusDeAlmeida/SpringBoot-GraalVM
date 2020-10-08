@@ -32,13 +32,13 @@ public class InputDataController{
         this.service = service;
     }
 
-    @GetMapping("/steps/{id}/inputdata")
+    @GetMapping("/step/{id}/inputdata")
     public List<InputData> findAllBugs(@PathVariable (value = "id") int id){
         return repository.findByStepId(id);
     }
 
-    @PostMapping(path = { "/steps/{stepId}/inputdata" })
-    public InputData create(@PathVariable (value = "projectId") int stepId, @RequestBody InputData bug) {
+    @PostMapping(path = { "/step/{stepId}/inputdata" })
+    public InputData create(@PathVariable (value = "stepId") int stepId, @RequestBody InputData bug) {
         return service.addInputData(stepId, bug);
     }
 
