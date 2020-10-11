@@ -3,6 +3,46 @@
 		"name":"com.fasterxml.jackson.annotation.SimpleObjectIdResolver",
 		"allDeclaredConstructors":true,
 		"allDeclaredMethods":true
-	}
+	},
+	{
+        "name": "org.hibernate.dialect.MySQL8Dialect",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    },
+    {
+        "name": "java.lang.management.ManagementFactory",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    },
+    {
+        "name": "java.lang.management.RuntimeMXBean",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    },
+    {
+        "name": "com.mysql.cj.exceptions.CJException",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    },
+    {
+        "name": "com.mysql.cj.exceptions.WrongArgumentException",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    },
+    {
+        "name": "com.mysql.cj.exceptions.UnableToConnectException",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    },
+    {
+        "name": "com.mysql.cj.conf.url.SingleConnectionUrl",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    },
+    {
+        "name": "com.mysql.cj.log.StandardLogger",
+        "allDeclaredConstructors": true,
+        "allDeclaredMethods": true
+    }
 ]
 
