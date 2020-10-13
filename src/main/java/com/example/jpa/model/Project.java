@@ -13,14 +13,14 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    String name;
+    String description;
 
     public Project() {
     }
 
-    public Project(Integer id, String name) {
+    public Project(Integer id, String description) {
         this.id = id;
-        this.name = name;
+        this.description = description;
     }
 
     public Integer getId() {
@@ -32,11 +32,11 @@ public class Project {
     }
 
     public String getDescription() {
-        return this.name;
+        return this.description;
     }
 
-    public void setDescription(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Project id(Integer id) {
@@ -44,8 +44,8 @@ public class Project {
         return this;
     }
 
-    public Project description(String name) {
-        this.name = name;
+    public Project description(String description) {
+        this.description = description;
         return this;
     }
 
@@ -57,19 +57,19 @@ public class Project {
             return false;
         }
         Project project = (Project) o;
-        return Objects.equals(id, project.id) && Objects.equals(name, project.name);
+        return Objects.equals(id, project.id) && Objects.equals(description, project.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, description);
     }
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", name='" + getDescription() + "'" +
+            ", description='" + getDescription() + "'" +
             "}";
     }
 
